@@ -7,6 +7,9 @@
 {{--@stop--}}
 
 @section('content')
+
+    <a href="{{route('category.index') }}"><i class="btn btn-primary" style="margin-bottom: 10px;"  role="button">Voltar</i> </a>
+
     <div class="box box-info">
         <div class="box-header with-border">
                 <h3 class="box-title">Detalhes da categoria</h3>

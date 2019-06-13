@@ -12,7 +12,7 @@
 
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">Dashboard</h3>
+            <h3 class="box-title">Compras e Vendas</h3>
             <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> </button>
             </div>
@@ -47,7 +47,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{route('purchases.index')}}" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{route('purchases.index')}}" class="small-box-footer">Mais informações <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -102,19 +102,7 @@
 
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">Gráfico</h3>
-            <div class="box-tools pull-right">
-                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> </button>
-            </div>
-        </div>
-        <div class="box-body">
-            <canvas id="myChart" width="400" height="100"></canvas>
-        </div>
-    </div>
-
-    <div class="box box-info">
-        <div class="box-header with-border">
-            <h3 class="box-title">Gráfico</h3>
+            <h3 class="box-title">Vendas Diárias - Semana</h3>
             <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> </button>
             </div>
@@ -123,6 +111,19 @@
             <canvas id="myChart2" width="400" height="100"></canvas>
         </div>
     </div>
+
+
+    <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Vendas Diárias - Mês</h3>
+                <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <canvas id="myChart" width="400" height="100"></canvas>
+            </div>
+        </div>
 @stop
 
 @section('js')

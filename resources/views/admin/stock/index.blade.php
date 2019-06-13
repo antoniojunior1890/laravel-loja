@@ -47,7 +47,7 @@
                             <td class="col-sm-2 text-center">
                                 <a href="{{route('stock.show',$stock->id)}}"><i class="btn btn-primary fa fa-eye" role="button"></i> </a>
                                 <a href="{{route('stock.edit',$stock->id)}}"><i class="btn btn-success fa fa-pencil" role="button"></i> </a>
-                                <a href="#"><i id="btnpagar" class="btn btn-danger fa fa-trash" data-idstock = "{{$stock->id}}"  data-toggle="modal" data-target="#modalExcluir"  role="button"></i> </a>
+                                {{-- <a href="#"><i id="btnpagar" class="btn btn-danger fa fa-trash" data-idstock = "{{$stock->id}}"  data-toggle="modal" data-target="#modalExcluir"  role="button"></i> </a> --}}
                             </td>
                         </tr>
                     @empty
@@ -85,15 +85,6 @@
 @stop
 
 @section('js')
-
-
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.html5.min.js"></script>
-
-    <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap.min.js"></script>
 
     <script src="{{asset('js/close_alerts.js')}}"></script>
 
@@ -140,25 +131,25 @@
                     {
                         extend: 'copyHtml5',
                         exportOptions:{
-                            columns:[0,1,2,3,4]
+                            columns:[0,1,2,3,4,5]
                         }
                     },
                     {
                         extend: 'excelHtml5',
                         exportOptions:{
-                            columns:[0,1,2,3,4]
+                            columns:[0,1,2,3,4,5]
                         }
                     },
                     {
                         extend: 'csvHtml5',
                         exportOptions:{
-                            columns:[0,1,2,3,4]
+                            columns:[0,1,2,3,4,5]
                         }
                     },
                     {
                         extend: 'pdfHtml5',
                         exportOptions:{
-                            columns:[0,1,2,3,4]
+                            columns:[0,1,2,3,4,5]
                         }
                     }
                     // 'pdfHtml5'

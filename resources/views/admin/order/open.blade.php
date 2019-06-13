@@ -131,6 +131,57 @@
                     });
                 }
             });
+
+
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        extend: 'copyHtml5',
+                        exportOptions:{
+                            columns:[0,1,2,3]
+                        }
+                    },
+                    {
+                        extend: 'excelHtml5',
+                        exportOptions:{
+                            columns:[0,1,2,3]
+                        }
+                    },
+                    {
+                        extend: 'csvHtml5',
+                        exportOptions:{
+                            columns:[0,1,2,3]
+                        }
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        exportOptions:{
+                            columns:[0,1,2,3]
+                        }
+                    }
+                    // 'pdfHtml5'
+                ],
+                "language":{
+                    "lengthMenu":"Exibir _MENU_ registros por página",
+                    "zeroRecords":"Nenhum registro encontrado",
+                    "info": "Exibindo página _PAGE_ de _PAGES_",
+                    "infoEmpty":"Nenhum registro disponível",
+                    "infoFiltered":"(filtrado total de _MAX_ registros)",
+                    "search":"Buscar:",
+                    "paginate":{
+                        "first":"Primeiro",
+                        "last":"Último",
+                        "previous":"Anterior",
+                        "next":"Próximo"
+
+                    }
+                }
+            });
+
+        });
+
     </script>
 @stop
 

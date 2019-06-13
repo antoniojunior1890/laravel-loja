@@ -70,7 +70,7 @@
                                 <td class="col-sm-1">{{$p['item']->id}}</td>
                                 <td class="col-sm-2">{{$p['item']->name}}</td>
                                 <td class="col-sm-2">R$ {{$p['item']->price}}</td>
-                                <td class="col-sm-2">R$ {{$p['item']->stock->amount}}</td>
+                                <td class="col-sm-2">{{$p['item']->stock->amount}}</td>
                                 <td class="col-sm-2">
                                     <a href="{{route('remove.cart',$p['item']->id)}}" ><i class="fa fa-minus-circle"></i></a>
                                     {{$p['qtd']}}
