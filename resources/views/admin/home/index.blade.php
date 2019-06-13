@@ -142,53 +142,34 @@
             // getDaysArray();
             // var data = getSalesArray();
 
-            getSalesArray();
+            getSalesWeekArray();
 
+            getSalesMonthArray();
+            
 
-
-            var ctx = document.getElementById('myChart2').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
-                    datasets: [{
-                        label: 'Vendas diárias (semana)',
-                        data: [12, 19, 3, 5, 2, 3],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
+            
 
         });
 
-        function getSalesArray() {
+        function getSalesWeekArray() {
+            var url = "{{route('sales.week')}}";
 
-            var url = "{{route('sales')}}";
+            $.get(url, function (data) {
+            }).done(function (data) {
+
+                var salesArray = [];
+
+                for(var i in data) {
+                    salesArray.push(data[i]);
+                }
+
+                createChartWeek(salesArray);
+            });
+        }
+
+        function getSalesMonthArray() {
+
+            var url = "{{route('sales.month')}}";
 
             $.get(url, function (data) {
             }).done(function (data) {
@@ -213,6 +194,46 @@
                     datasets: [{
                         label: 'Vendas diárias (mês)',
                         data: salesArray,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+        function createChartWeek(salesArray) {
+            var ctx = document.getElementById('myChart2').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Dom','Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                    datasets: [{
+                        label: 'Vendas diárias (semana)',
+                        data: salesArray,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
                         borderWidth: 1
                     }]
                 },

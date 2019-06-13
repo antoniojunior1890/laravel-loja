@@ -69,7 +69,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
     Route::get('create-order-paid', 'OrderController@createOrderPaid')->name('create.order.paid');
 
-    Route::get('sales', 'AdminController@Sales')->name('sales');
+    Route::get('sales-month', 'AdminController@salesMonth')->name('sales.month');
+
+    Route::get('sales-week', 'AdminController@salesWeek')->name('sales.week');
 
 
 

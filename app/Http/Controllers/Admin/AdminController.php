@@ -20,8 +20,14 @@ class AdminController extends Controller
         return view('admin.home.index',compact('paidOrdersDay','paidOrdersMonth','purchasesDay','purchasesMonth'));
     }
 
-    public function Sales(Order $order)
+    public function salesMonth(Order $order)
     {
-        return $order->getSales();
+        return $order->getSalesMonth();
     }
+
+    public function salesWeek(Order $order)
+    {
+        return $order->getSalesWeek();
+    }
+
 }

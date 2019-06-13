@@ -228,8 +228,51 @@ class Order extends Model
             ->where('status',2)
             ->count();
     }
+    
+    public function getSalesWeek()
+    {
 
-    public function getSales()
+        $week = date('w'); /* Semana atual... */
+        $firstDay = date('Y-m-d', strtotime('-'.$week.' days'));
+        $lastDay = date('Y-m-d', strtotime('+'.(6-$week).' days'));
+        
+        $orders = $this
+            ->select(DB::raw('count(*) as qt, date'))
+            ->where('date','>=',$firstDay)
+            ->where('date','<=',$lastDay)
+            ->groupBy('date')
+            ->get();
+
+
+        $array  = [];
+
+        foreach ($orders as $order)
+        {
+            $i = intval(Carbon::parse($order->date)->format('d'));
+
+            $array[$i] = $order->qt;
+        }
+
+        $arrayQt = [];
+        $firstDayWeek = intval(Carbon::parse($firstDay)->format('d'));
+        $lastDayWeek = intval(Carbon::parse($lastDay)->format('d'));
+
+
+        // dd($lastDayWeek);
+
+        for ($i = $firstDayWeek; $i <= $lastDayWeek; $i++) {
+            if(isset($array[$i])){
+                $arrayQt[$i] = $array[$i];
+            }else{
+                $arrayQt[$i] = 0;
+            }
+        }
+
+        return $arrayQt;
+
+    }
+
+    public function getSalesMonth()
     {
 
         $orders = $this
