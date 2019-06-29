@@ -41,6 +41,11 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('assets/imgs/icon.png') }}">
+    {{-- <link rel="icon" type="image/png" href="{{ asset('imgs/icon.png') }}"> --}}
+
 </head>
 <body class="hold-transition @yield('body_class')">
 
